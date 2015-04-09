@@ -1,0 +1,2 @@
+c:\users\compaq\documents\visual studio 2013\Projects\PADIMapNoReduce\PADIMapNoReduce\bin\Debug\PADIMapNoReduce.exe.config
+C:\Users\compaq\Documents\Visual Studio 2013\Projects\PADI_LAB_2015\PADIMapNoReduce\PADIMapNoReduce\bin\Debug\PADIMapNoReduce.exe.config
