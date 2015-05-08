@@ -42,11 +42,9 @@
             this.lblSecond = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btStartJobs = new System.Windows.Forms.Button();
             this.btStartClient = new System.Windows.Forms.Button();
-            this.btSubmit = new System.Windows.Forms.Button();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.btStatus = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -141,13 +139,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lblResult);
             this.groupBox2.Controls.Add(this.btWait);
             this.groupBox2.Controls.Add(this.lblSecond);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(203, 69);
+            this.groupBox2.Size = new System.Drawing.Size(203, 49);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             // 
@@ -180,8 +177,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btStatus);
-            this.groupBox3.Controls.Add(this.btSubmit);
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.btStartJobs);
             this.groupBox3.Controls.Add(this.btStartClient);
             this.groupBox3.Location = new System.Drawing.Point(12, 7);
@@ -190,10 +186,20 @@
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(281, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 25);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Status";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // btStartJobs
             // 
             this.btStartJobs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btStartJobs.Location = new System.Drawing.Point(115, 15);
+            this.btStartJobs.Location = new System.Drawing.Point(151, 15);
             this.btStartJobs.Name = "btStartJobs";
             this.btStartJobs.Size = new System.Drawing.Size(87, 25);
             this.btStartJobs.TabIndex = 3;
@@ -210,47 +216,17 @@
             this.btStartClient.Text = "Start Client";
             this.btStartClient.UseVisualStyleBackColor = true;
             // 
-            // btSubmit
-            // 
-            this.btSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSubmit.Location = new System.Drawing.Point(212, 15);
-            this.btSubmit.Name = "btSubmit";
-            this.btSubmit.Size = new System.Drawing.Size(75, 25);
-            this.btSubmit.TabIndex = 4;
-            this.btSubmit.Text = "SUBMIT";
-            this.btSubmit.UseVisualStyleBackColor = true;
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Red;
-            this.lblResult.Location = new System.Drawing.Point(8, 47);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(43, 13);
-            this.lblResult.TabIndex = 5;
-            this.lblResult.Text = "Result";
-            // 
-            // btStatus
-            // 
-            this.btStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btStatus.Location = new System.Drawing.Point(295, 15);
-            this.btStatus.Name = "btStatus";
-            this.btStatus.Size = new System.Drawing.Size(75, 25);
-            this.btStatus.TabIndex = 9;
-            this.btStatus.Text = "STATUS";
-            this.btStatus.UseVisualStyleBackColor = true;
-            // 
             // FrmPuppetMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 198);
+            this.ClientSize = new System.Drawing.Size(708, 398);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmPuppetMaster";
             this.Text = "PuppetMaster";
+            this.Load += new System.EventHandler(this.FrmPuppetMaster_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -276,11 +252,9 @@
         private System.Windows.Forms.Label lblSecond;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btSubmit;
         private System.Windows.Forms.Button btStartJobs;
         private System.Windows.Forms.Button btStartClient;
-        private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.Button btStatus;
+        private System.Windows.Forms.Button button1;
     }
 }
 

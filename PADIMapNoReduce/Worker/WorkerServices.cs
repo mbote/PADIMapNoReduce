@@ -15,6 +15,6 @@ namespace Worker
 {
     public class WorkerServices:MarshalByRefObject,IWorker
     {
-
+        public bool SendMapper(byte[] code, string className) { return true; }
     }
 }

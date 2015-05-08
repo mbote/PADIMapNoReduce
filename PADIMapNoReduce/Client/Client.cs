@@ -18,7 +18,7 @@ namespace Client
         {
             
             string urlWorker = String.Empty;
-            string urlClinte = "tcp://localhost:" + args[0] + "C";
+            string urlClinte = "tcp://localhost:" + args[0] + "/C";
             string urlMaster = "tcp://localhost:20001/PM";
 
 

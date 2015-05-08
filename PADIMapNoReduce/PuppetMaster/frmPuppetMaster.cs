@@ -16,5 +16,25 @@ namespace PuppetMaster
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmPuppetMaster_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

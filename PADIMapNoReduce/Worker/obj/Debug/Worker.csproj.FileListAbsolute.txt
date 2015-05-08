@@ -1,2 +1,10 @@
 C:\Users\compaq\Documents\Visual Studio 2013\Projects\PADI_LAB_2015\PADIMapNoReduce\Worker\bin\Debug\Worker.exe.config
 C:\Users\compaq\Documents\Visual Studio 2013\Projects\PADI_LAB_2015\Repositório\PADIMapNoReduce\Worker\bin\Debug\Worker.exe.config
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\bin\Debug\Worker.exe.config
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\obj\Debug\Worker.csprojResolveAssemblyReference.cache
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\bin\Debug\Worker.exe
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\bin\Debug\Worker.pdb
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\bin\Debug\LibPADIMapNoReduce.dll
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\bin\Debug\LibPADIMapNoReduce.pdb
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\obj\Debug\Worker.exe
+C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\obj\Debug\Worker.pdb
