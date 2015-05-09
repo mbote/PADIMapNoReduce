@@ -8,3 +8,4 @@ C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\bin\Debug\Lib
 C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\bin\Debug\LibPADIMapNoReduce.pdb
 C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\obj\Debug\Worker.exe
 C:\Users\Pedro\Desktop\PADI\PADIMapNoReduce\PADIMapNoReduce\Worker\obj\Debug\Worker.pdb
+C:\Users\Rita\Source\Repos\PADIMapNoReduce2\PADIMapNoReduce\Worker\bin\Debug\Worker.exe.config

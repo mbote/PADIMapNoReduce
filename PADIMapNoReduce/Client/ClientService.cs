@@ -14,6 +14,19 @@ namespace Client
 {
    public class ClientService:MarshalByRefObject,IClient
     {
+       public static ClientForm form;
+       private IList<KeyValuePair<string, string>> mapResults;
 
+       public ClientService() { }
+
+       public string getFileSplit(int fstLine, int lstLine)
+       {
+           return "DummyLine";
+       }
+
+       public void setMappingResult(IList<KeyValuePair<string, string>> mapResults)
+       {
+           this.mapResults = mapResults;
+       }
     }
 }

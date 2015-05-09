@@ -22,7 +22,7 @@ namespace Worker
             RemotingConfiguration.RegisterWellKnownServiceType(
                 typeof(WorkerServices), "C",
                 WellKnownObjectMode.Singleton);
-            System.Console.WriteLine("Press <enter> to terminate chat server...");
+            System.Console.WriteLine("Press <enter> to terminate worker...");
             System.Console.ReadLine();
 
             IMaster mt = (IMaster)Activator.GetObject( typeof(IWorker),

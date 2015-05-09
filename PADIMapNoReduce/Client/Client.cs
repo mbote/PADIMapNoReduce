@@ -14,6 +14,27 @@ namespace Client
 {
    public class Client
     {
+       string workerURL;
+       IWorker mt;
+       string inputFile;
+       int splitNr;
+       string outputPath;
+       IMapper mappingClass;
+
+       public void submit(string inputFile, int splitNr, string outputPath, string mappingClass)
+       {
+		   mt = (IWorker)Activator.GetObject(typeof(IWorker),workerURL);
+		   try
+           {
+               byte[] code = File.ReadAllBytes(mappingClass);
+               Console.WriteLine(mt.SendMapper(code, Path.GetFileNameWithoutExtension(mappingClass));
+           }
+           catch (SocketException)
+           {
+               System.Console.WriteLine("Could not locate server");
+           }
+       }
+
         static void Main(string[] args)
         {
             
@@ -27,7 +48,7 @@ namespace Client
             RemotingConfiguration.RegisterWellKnownServiceType(
                 typeof(ClientService), "C",
                 WellKnownObjectMode.Singleton);
-            System.Console.WriteLine("Press <enter> to terminate chat server...");
+            System.Console.WriteLine("Press <enter> to terminate client...");
             System.Console.ReadLine();
 
                 

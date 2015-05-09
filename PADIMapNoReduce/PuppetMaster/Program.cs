@@ -33,7 +33,7 @@ namespace PuppetMaster
             RemotingConfiguration.RegisterWellKnownServiceType(
                 typeof(PuppetMasterServices), "PM",
                 WellKnownObjectMode.Singleton);
-            System.Console.WriteLine("Press <enter> to terminate chat server...");
+            System.Console.WriteLine("Press <enter> to terminate Puppet Master...");
             System.Console.ReadLine();
         }
 

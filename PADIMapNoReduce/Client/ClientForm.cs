@@ -16,5 +16,11 @@ namespace Client
         {
             InitializeComponent();
         }
+
+        [STAThread]
+        static void Main()
+        {
+            Application.Run(new ClientForm());
+        }
     }
 }
