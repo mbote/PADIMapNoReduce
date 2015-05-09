@@ -25,7 +25,6 @@ namespace Worker
                 WellKnownObjectMode.Singleton);
             System.Console.WriteLine("Press <enter> to terminate worker...");
             System.Console.ReadLine();
-
            /* IMaster mt = (IMaster)Activator.GetObject( typeof(IWorker),
                                                        "tcp://localhost:20001/PM");*/
         }

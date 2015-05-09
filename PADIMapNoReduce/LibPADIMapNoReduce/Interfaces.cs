@@ -15,7 +15,9 @@ namespace LibPADIMapNoReduce
         bool SendMapper(byte[] code, string className);
     }
 
-    public interface IWorker : IMapperTransfer { }
+    public interface IWorker : IMapperTransfer {
+        void setJobTracker(bool b);
+    }
 
     public interface IMaster : IMapperTransfer { }
 

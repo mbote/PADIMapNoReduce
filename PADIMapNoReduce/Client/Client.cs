@@ -40,24 +40,27 @@ namespace Client
                typeof(IMaster), urlMaster);
 
            worker = (IWorker)Activator.GetObject(
-              typeof(IWorker), urlMaster);
+              typeof(IWorker), urlWorker);
+
+           worker.setJobTracker(true);
+
            System.Console.WriteLine("The worker URL is " + urlWorker);
            System.Console.WriteLine("The master URL is " + urlMaster);
        }
 
-       /*public void submit(string inputFile, int splitNr, string outputPath, string mappingClass)
+       public void submit(string inputFile, int splitNr, string outputPath, string mappingClass)
        {
-		   mt = (IWorker)Activator.GetObject(typeof(IWorker),workerURL);
 		   try
            {
                byte[] code = File.ReadAllBytes(mappingClass);
-               Console.WriteLine(mt.SendMapper(code, Path.GetFileNameWithoutExtension(mappingClass)));
+               //TODO: Make this work
+               Console.WriteLine(worker.SendMapper(code, Path.GetFileNameWithoutExtension(mappingClass)));
            }
            catch (SocketException)
            {
                System.Console.WriteLine("Could not locate server");
            }
-       }*/
+       }
 
       /*  static void Main(string[] args)
         {

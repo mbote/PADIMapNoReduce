@@ -16,6 +16,13 @@ namespace Worker
 {
     public class WorkerServices:MarshalByRefObject,IWorker
     {
+        bool isJobTracker;
+
+        public void setJobTracker(bool b)
+        {
+            isJobTracker = b;
+        }
+
         public bool SendMapper(byte[] code, string className)
         {
             Assembly assembly = Assembly.Load(code);
