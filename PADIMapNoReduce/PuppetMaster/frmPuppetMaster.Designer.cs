@@ -215,6 +215,7 @@
             this.btStartClient.TabIndex = 2;
             this.btStartClient.Text = "Start Client";
             this.btStartClient.UseVisualStyleBackColor = true;
+            this.btStartClient.Click += new System.EventHandler(this.btStartClient_Click);
             // 
             // FrmPuppetMaster
             // 

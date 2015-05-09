@@ -36,5 +36,11 @@ namespace PuppetMaster
         {
 
         }
+
+        private void btStartClient_Click(object sender, EventArgs e)
+        {
+            //TODO: ISTO NAO E PARA FICAR AQUI
+            Program.Connection("20001");
+        }
     }
 }

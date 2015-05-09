@@ -15,6 +15,9 @@ namespace PuppetMaster
 {
   public  class PuppetMasterServices:MarshalByRefObject,IMaster
     {
-
+      public bool SendMapper(byte[] b, string s)
+      {
+          return true;
+      }
     }
 }

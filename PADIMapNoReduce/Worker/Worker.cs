@@ -15,18 +15,19 @@ namespace Worker
 {
     public class Worker
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            TcpChannel channel = new TcpChannel(Int16.Parse(args[0]));
+            TcpChannel channel = new TcpChannel(30001);
             ChannelServices.RegisterChannel(channel, false);
             RemotingConfiguration.RegisterWellKnownServiceType(
-                typeof(WorkerServices), "C",
+                typeof(WorkerServices), "W",
                 WellKnownObjectMode.Singleton);
             System.Console.WriteLine("Press <enter> to terminate worker...");
             System.Console.ReadLine();
 
-            IMaster mt = (IMaster)Activator.GetObject( typeof(IWorker),
-                                                       "tcp://localhost:20001/PM");
+           /* IMaster mt = (IMaster)Activator.GetObject( typeof(IWorker),
+                                                       "tcp://localhost:20001/PM");*/
         }
     }
 }

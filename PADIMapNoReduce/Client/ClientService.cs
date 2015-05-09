@@ -19,6 +19,10 @@ namespace Client
 
        public ClientService() { }
 
+       public bool SendMapper(byte[] b, string s) {
+           return true;
+       }
+
        public string getFileSplit(int fstLine, int lstLine)
        {
            return "DummyLine";

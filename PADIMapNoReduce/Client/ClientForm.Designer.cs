@@ -41,9 +41,9 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btSubmit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.InitializeButton = new System.Windows.Forms.Button();
+            this.WorkerURL = new System.Windows.Forms.TextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -161,30 +161,14 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.InitializeButton);
+            this.groupBox1.Controls.Add(this.WorkerURL);
             this.groupBox1.Location = new System.Drawing.Point(18, 21);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(409, 69);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Initialize worker contact";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(293, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(315, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Initialize";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -194,6 +178,23 @@
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Worker URL";
+            // 
+            // InitializeButton
+            // 
+            this.InitializeButton.Location = new System.Drawing.Point(315, 39);
+            this.InitializeButton.Name = "InitializeButton";
+            this.InitializeButton.Size = new System.Drawing.Size(87, 23);
+            this.InitializeButton.TabIndex = 1;
+            this.InitializeButton.Text = "Initialize";
+            this.InitializeButton.UseVisualStyleBackColor = true;
+            this.InitializeButton.Click += new System.EventHandler(this.InitializeButton_Click);
+            // 
+            // WorkerURL
+            // 
+            this.WorkerURL.Location = new System.Drawing.Point(6, 43);
+            this.WorkerURL.Name = "WorkerURL";
+            this.WorkerURL.Size = new System.Drawing.Size(293, 20);
+            this.WorkerURL.TabIndex = 0;
             // 
             // ClientForm
             // 
@@ -228,7 +229,7 @@
         private System.Windows.Forms.Button btSubmit;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button InitializeButton;
+        private System.Windows.Forms.TextBox WorkerURL;
     }
 }

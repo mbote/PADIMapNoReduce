@@ -12,6 +12,9 @@ namespace Client
 {
     public partial class ClientForm : Form
     {
+
+        Client client;
+
         public ClientForm()
         {
             InitializeComponent();
@@ -21,6 +24,12 @@ namespace Client
         static void Main()
         {
             Application.Run(new ClientForm());
+        }
+
+        private void InitializeButton_Click(object sender, EventArgs e)
+        {
+            client = new Client();
+            client.init(WorkerURL.Text);
         }
     }
 }

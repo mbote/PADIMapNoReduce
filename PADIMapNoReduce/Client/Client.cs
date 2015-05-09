@@ -14,28 +14,52 @@ namespace Client
 {
    public class Client
     {
-       string workerURL;
-       IWorker mt;
+       IWorker worker;
+       IMaster master;
        string inputFile;
        int splitNr;
        string outputPath;
        IMapper mappingClass;
 
-       public void submit(string inputFile, int splitNr, string outputPath, string mappingClass)
+       public void init(string EntryURL)
+       {
+           string urlWorker = EntryURL;
+           string urlMaster = "tcp://localhost:20001/PM";
+
+
+           TcpChannel channel = new TcpChannel(10001);
+           ChannelServices.RegisterChannel(channel, false);
+           RemotingConfiguration.RegisterWellKnownServiceType(
+               typeof(ClientService), "C",
+               WellKnownObjectMode.Singleton);
+           System.Console.WriteLine("Press <enter> to terminate client...");
+           System.Console.ReadLine();
+
+
+           master = (IMaster)Activator.GetObject(
+               typeof(IMaster), urlMaster);
+
+           worker = (IWorker)Activator.GetObject(
+              typeof(IWorker), urlMaster);
+           System.Console.WriteLine("The worker URL is " + urlWorker);
+           System.Console.WriteLine("The master URL is " + urlMaster);
+       }
+
+       /*public void submit(string inputFile, int splitNr, string outputPath, string mappingClass)
        {
 		   mt = (IWorker)Activator.GetObject(typeof(IWorker),workerURL);
 		   try
            {
                byte[] code = File.ReadAllBytes(mappingClass);
-               Console.WriteLine(mt.SendMapper(code, Path.GetFileNameWithoutExtension(mappingClass));
+               Console.WriteLine(mt.SendMapper(code, Path.GetFileNameWithoutExtension(mappingClass)));
            }
            catch (SocketException)
            {
                System.Console.WriteLine("Could not locate server");
            }
-       }
+       }*/
 
-        static void Main(string[] args)
+      /*  static void Main(string[] args)
         {
             
             string urlWorker = String.Empty;
@@ -57,6 +81,6 @@ namespace Client
 
             IWorker wk = (IWorker)Activator.GetObject(
                typeof(IWorker), urlMaster);
-        }
+        }*/
     }
 }
