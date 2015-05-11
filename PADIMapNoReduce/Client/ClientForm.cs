@@ -83,7 +83,7 @@ namespace Client
             int n;
             if (File.Exists(InputFile.Text) && File.Exists(MapFunction.Text) && Directory.Exists(OutputFolder.Text) && int.TryParse(SplitsNr.Text, out n))
             {
-                client.submit(InputFile.Text, n, OutputFolder.Text, MapFunction.Text);
+                client.submit(InputFile.Text, n, OutputFolder.Text, MapperClassName.Text, MapFunction.Text);
                 Console.WriteLine("YEY");
                 Console.ReadLine();
             }
@@ -92,6 +92,16 @@ namespace Client
                 Console.WriteLine("Please, correctly fill the client form");
                 Console.ReadLine();
             }
+        }
+
+        private void ClientForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

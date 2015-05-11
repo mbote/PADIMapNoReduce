@@ -55,9 +55,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibPADIMapNoReduce\LibPADIMapNoReduce.csproj">
+    <ProjectReference Include="..\LibPADIMapNoReduce\PADIMapNoReduce.csproj">
       <Project>{1a9c183e-7013-4eea-82b9-0c144fd36c66}</Project>
-      <Name>LibPADIMapNoReduce</Name>
+      <Name>PADIMapNoReduce</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

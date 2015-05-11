@@ -9,11 +9,29 @@ using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Net.Sockets;
 using System.IO;
-using LibPADIMapNoReduce;
+using PADIMapNoReduce;
 
 
 namespace Worker
 {
+    public static class HelperMethods
+    {
+        public static IEnumerable<Type> GetLoadableTypes(this Assembly assembly)
+        {
+            if (assembly == null) throw new ArgumentNullException("assembly");
+            try
+            {
+                Console.WriteLine("Went through the normal path");
+                return assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException e)
+            {
+                foreach (Exception ei in e.LoaderExceptions)
+                    Console.WriteLine(ei.Message);
+                return e.Types.Where(t => t != null);
+            }
+        }
+    }
     public class WorkerServices:MarshalByRefObject,IWorker
     {
         bool isJobTracker;
@@ -25,14 +43,17 @@ namespace Worker
 
         public bool SendMapper(byte[] code, string className)
         {
+            Console.WriteLine("This shit arrived here1");
             Assembly assembly = Assembly.Load(code);
             // Walk through each type in the assembly looking for our class
-            foreach (Type type in assembly.GetTypes())
+            foreach (Type type in HelperMethods.GetLoadableTypes(assembly))
             {
+                Console.WriteLine("This shit arrived here2");
                 if (type.IsClass == true)
                 {
                     if (type.FullName.EndsWith("." + className))
                     {
+                        Console.WriteLine("This shit arrived here");
                         // create an instance of the object
                         object ClassObj = Activator.CreateInstance(type);
 

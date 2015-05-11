@@ -48,12 +48,16 @@
             this.openMapClass = new System.Windows.Forms.OpenFileDialog();
             this.openInputFile = new System.Windows.Forms.OpenFileDialog();
             this.openOutputFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.MapperClassName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.MapperClassName);
             this.groupBox4.Controls.Add(this.SelectOutput);
             this.groupBox4.Controls.Add(this.SelectInput);
             this.groupBox4.Controls.Add(this.ChooseClass);
@@ -68,7 +72,7 @@
             this.groupBox4.Controls.Add(this.btSubmit);
             this.groupBox4.Location = new System.Drawing.Point(12, 106);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(415, 165);
+            this.groupBox4.Size = new System.Drawing.Size(415, 209);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Submit Job";
@@ -95,7 +99,7 @@
             // 
             // ChooseClass
             // 
-            this.ChooseClass.Location = new System.Drawing.Point(235, 126);
+            this.ChooseClass.Location = new System.Drawing.Point(244, 175);
             this.ChooseClass.Name = "ChooseClass";
             this.ChooseClass.Size = new System.Drawing.Size(84, 25);
             this.ChooseClass.TabIndex = 15;
@@ -106,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(106, 111);
+            this.label5.Location = new System.Drawing.Point(5, 161);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 14;
@@ -115,16 +119,16 @@
             // MapFunction
             // 
             this.MapFunction.BackColor = System.Drawing.SystemColors.Menu;
-            this.MapFunction.Location = new System.Drawing.Point(106, 129);
+            this.MapFunction.Location = new System.Drawing.Point(5, 179);
             this.MapFunction.Name = "MapFunction";
-            this.MapFunction.Size = new System.Drawing.Size(123, 20);
+            this.MapFunction.Size = new System.Drawing.Size(233, 20);
             this.MapFunction.TabIndex = 13;
             this.MapFunction.TextChanged += new System.EventHandler(this.MapFunction_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 111);
+            this.label4.Location = new System.Drawing.Point(5, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 12;
@@ -132,7 +136,7 @@
             // 
             // SplitsNr
             // 
-            this.SplitsNr.Location = new System.Drawing.Point(6, 129);
+            this.SplitsNr.Location = new System.Drawing.Point(6, 132);
             this.SplitsNr.Name = "SplitsNr";
             this.SplitsNr.Size = new System.Drawing.Size(70, 20);
             this.SplitsNr.TabIndex = 11;
@@ -176,7 +180,7 @@
             // btSubmit
             // 
             this.btSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSubmit.Location = new System.Drawing.Point(334, 126);
+            this.btSubmit.Location = new System.Drawing.Point(334, 175);
             this.btSubmit.Name = "btSubmit";
             this.btSubmit.Size = new System.Drawing.Size(75, 25);
             this.btSubmit.TabIndex = 4;
@@ -230,15 +234,33 @@
             // 
             this.openInputFile.FileName = "openFileDialog1";
             // 
+            // MapperClassName
+            // 
+            this.MapperClassName.Location = new System.Drawing.Point(109, 132);
+            this.MapperClassName.Name = "MapperClassName";
+            this.MapperClassName.Size = new System.Drawing.Size(293, 20);
+            this.MapperClassName.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(106, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Mapper Class Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 283);
+            this.ClientSize = new System.Drawing.Size(439, 325);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Name = "ClientForm";
             this.Text = "ClientForm";
+            this.Load += new System.EventHandler(this.ClientForm_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -269,5 +291,7 @@
         private System.Windows.Forms.Button SelectOutput;
         private System.Windows.Forms.OpenFileDialog openInputFile;
         private System.Windows.Forms.FolderBrowserDialog openOutputFolder;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox MapperClassName;
     }
 }
