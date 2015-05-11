@@ -8,7 +8,7 @@ using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Net.Sockets;
 using System.IO;
-using LibPADIMapNoReduce;
+using PADIMapNoReduce;
 
 namespace Client
 {
@@ -16,10 +16,6 @@ namespace Client
     {
        IWorker worker;
        IMaster master;
-       string inputFile;
-       int splitNr;
-       string outputPath;
-       IMapper mappingClass;
 
        public void init(string EntryURL)
        {
@@ -48,13 +44,13 @@ namespace Client
            System.Console.WriteLine("The master URL is " + urlMaster);
        }
 
-       public void submit(string inputFile, int splitNr, string outputPath, string mappingClass)
+       public void submit(string inputFile, int splitNr, string outputPath, string className, string mappingClass)
        {
 		   try
            {
                byte[] code = File.ReadAllBytes(mappingClass);
                //TODO: Make this work
-               Console.WriteLine(worker.SendMapper(code, Path.GetFileNameWithoutExtension(mappingClass)));
+               Console.WriteLine(worker.SendMapper(code, className));
            }
            catch (SocketException)
            {
