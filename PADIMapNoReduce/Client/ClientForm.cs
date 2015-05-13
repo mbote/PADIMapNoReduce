@@ -15,6 +15,7 @@ namespace Client
     {
 
         Client client;
+        ClientService clientService;
 
         public ClientForm()
         {
@@ -84,8 +85,6 @@ namespace Client
             if (File.Exists(InputFile.Text) && File.Exists(MapFunction.Text) && Directory.Exists(OutputFolder.Text) && int.TryParse(SplitsNr.Text, out n))
             {
                 client.submit(InputFile.Text, n, OutputFolder.Text, MapperClassName.Text, MapFunction.Text);
-                Console.WriteLine("YEY");
-                Console.ReadLine();
             }
             else
             {

@@ -12,25 +12,49 @@ using PADIMapNoReduce;
 
 namespace Client
 {
+    [Serializable]
    public class ClientService:MarshalByRefObject,IClient
     {
        public static ClientForm form;
-       private IList<KeyValuePair<string, string>> mapResults;
+       private string filePath;
+       private string outputFolder;
 
        public ClientService() { }
+
+       public void setFilePath(string path)
+       {
+           filePath = path;
+       }
+
+       public void setOutputFolder(string path)
+       {
+           outputFolder = path;
+       }
 
        public bool SendMapper(byte[] b, string s) {
            return true;
        }
 
-       public string getFileSplit(int fstLine, int lstLine)
+       public List<string> getFileSplit(int fstLine, int lstLine)
        {
-           return "DummyLine";
+           List<string> split = new List<string>(); 
+           FileStream file = File.OpenRead(filePath);
+
+           for (int i = 0; i <= lstLine - fstLine; i++)
+               split.Add(File.ReadLines(filePath).Skip(fstLine - 1 + i).Take(1).First());
+
+           return split;
        }
 
-       public void setMappingResult(IList<KeyValuePair<string, string>> mapResults)
+
+        //TODO: Not sure if there should be a splitNr here.
+       public void setMappingResult(IList<KeyValuePair<string, string>> mapResults, int splitNr)
        {
-           this.mapResults = mapResults;
+           using (StreamWriter writer = new StreamWriter(outputFolder + "/" + splitNr + ".out")) {
+               foreach (KeyValuePair<string, string> pair in mapResults) {
+                   writer.WriteLine("key: " + pair.Key + ", value: " + pair.Value);
+               }
+           }
        }
     }
 }

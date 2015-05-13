@@ -14,6 +14,7 @@ using PADIMapNoReduce;
 
 namespace Worker
 {
+    
     public static class HelperMethods
     {
         public static IEnumerable<Type> GetLoadableTypes(this Assembly assembly)
@@ -21,7 +22,6 @@ namespace Worker
             if (assembly == null) throw new ArgumentNullException("assembly");
             try
             {
-                Console.WriteLine("Went through the normal path");
                 return assembly.GetTypes();
             }
             catch (ReflectionTypeLoadException e)
@@ -34,7 +34,13 @@ namespace Worker
     }
     public class WorkerServices:MarshalByRefObject,IWorker
     {
-        bool isJobTracker;
+        private bool isJobTracker;
+        public IClient client;
+
+        public void setClient(string clientAddress)
+        {
+            client = (IClient)Activator.GetObject(typeof(IClient), clientAddress);
+        }
 
         public void setJobTracker(bool b)
         {
@@ -43,17 +49,14 @@ namespace Worker
 
         public bool SendMapper(byte[] code, string className)
         {
-            Console.WriteLine("This shit arrived here1");
             Assembly assembly = Assembly.Load(code);
             // Walk through each type in the assembly looking for our class
             foreach (Type type in HelperMethods.GetLoadableTypes(assembly))
             {
-                Console.WriteLine("This shit arrived here2");
                 if (type.IsClass == true)
                 {
                     if (type.FullName.EndsWith("." + className))
                     {
-                        Console.WriteLine("This shit arrived here");
                         // create an instance of the object
                         object ClassObj = Activator.CreateInstance(type);
 
@@ -66,6 +69,8 @@ namespace Worker
                                args);
                         IList<KeyValuePair<string, string>> result = (IList<KeyValuePair<string, string>>)resultObject;
                        //TODO: Call client method to send mapping results
+                        client.setMappingResult(result);
+
                         Console.WriteLine("Map call result was: ");
                         foreach (KeyValuePair<string, string> p in result)
                         {

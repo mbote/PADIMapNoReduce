@@ -15,11 +15,15 @@ namespace PADIMapNoReduce
 
     public interface IWorker : IMapperTransfer {
         void setJobTracker(bool b);
+        void setClient(string clientAddress);
     }
 
     public interface IMaster : IMapperTransfer { }
 
-    public interface IClient : IMapperTransfer { }
+    public interface IClient : IMapperTransfer {
+        List<string> getFileSplit(int fstLine, int lstLine);
+        void setMappingResult(IList<KeyValuePair<string, string>> mapResults, int splitNr);
+    }
 
 
 }

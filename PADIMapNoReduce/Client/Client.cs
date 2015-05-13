@@ -16,21 +16,19 @@ namespace Client
     {
        IWorker worker;
        IMaster master;
+       ClientService clientService;
+
 
        public void init(string EntryURL)
        {
            string urlWorker = EntryURL;
            string urlMaster = "tcp://localhost:20001/PM";
 
-
            TcpChannel channel = new TcpChannel(10001);
            ChannelServices.RegisterChannel(channel, false);
-           RemotingConfiguration.RegisterWellKnownServiceType(
-               typeof(ClientService), "C",
-               WellKnownObjectMode.Singleton);
-           System.Console.WriteLine("Press <enter> to terminate client...");
-           System.Console.ReadLine();
 
+           clientService = new ClientService();
+           RemotingServices.Marshal(clientService, "C", typeof(ClientService));
 
            master = (IMaster)Activator.GetObject(
                typeof(IMaster), urlMaster);
@@ -48,8 +46,14 @@ namespace Client
        {
 		   try
            {
+               clientService.setFilePath(inputFile);
+               clientService.setOutputFolder(outputPath);
+
+               clientService.getFileSplit(3, 7);
+               
                byte[] code = File.ReadAllBytes(mappingClass);
                //TODO: Make this work
+               worker.setClient("tcp://localhost:10001/C");
                Console.WriteLine(worker.SendMapper(code, className));
            }
            catch (SocketException)
