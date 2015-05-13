@@ -68,14 +68,7 @@ namespace Worker
                                ClassObj,
                                args);
                         IList<KeyValuePair<string, string>> result = (IList<KeyValuePair<string, string>>)resultObject;
-                       //TODO: Call client method to send mapping results
-                        client.setMappingResult(result);
-
-                        Console.WriteLine("Map call result was: ");
-                        foreach (KeyValuePair<string, string> p in result)
-                        {
-                            Console.WriteLine("key: " + p.Key + ", value: " + p.Value);
-                        }
+                        client.setMappingResult(result, 1);
                         return true;
                     }
                 }

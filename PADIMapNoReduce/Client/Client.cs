@@ -52,7 +52,6 @@ namespace Client
                clientService.getFileSplit(3, 7);
                
                byte[] code = File.ReadAllBytes(mappingClass);
-               //TODO: Make this work
                worker.setClient("tcp://localhost:10001/C");
                Console.WriteLine(worker.SendMapper(code, className));
            }
