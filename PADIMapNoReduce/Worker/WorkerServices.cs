@@ -35,7 +35,21 @@ namespace Worker
     public class WorkerServices:MarshalByRefObject,IWorker
     {
         private bool isJobTracker;
+        private object mapperClass;
+        private Type mapperClassType;
+        private int totalSplits;
+        private int totalLines;
         public IClient client;
+
+        public void setTotalSplits(int totalSplits)
+        {
+            this.totalSplits = totalSplits;
+        }
+
+        public void setTotalLines(int totalLines)
+        {
+            this.totalLines = totalLines;
+        }
 
         public void setClient(string clientAddress)
         {
@@ -45,6 +59,23 @@ namespace Worker
         public void setJobTracker(bool b)
         {
             isJobTracker = b;
+        }
+
+        private List<KeyValuePair<string, string>> mapSplit(List<string> argsList, object ClassObj, Type type)
+        {
+            List<KeyValuePair<string, string>> mapResult = new List<KeyValuePair<string, string>>();
+
+            foreach (string s in argsList)
+            {
+                object[] o = { s };
+                IList<KeyValuePair<string, string>> it = (IList<KeyValuePair<string, string>>) type.InvokeMember("Map",
+                                                                                            BindingFlags.Default | BindingFlags.InvokeMethod,
+                                                                                            null,
+                                                                                            ClassObj,
+                                                                                            o);
+                mapResult.AddRange(it);
+            }
+            return mapResult;
         }
 
         public bool SendMapper(byte[] code, string className)
@@ -58,22 +89,26 @@ namespace Worker
                     if (type.FullName.EndsWith("." + className))
                     {
                         // create an instance of the object
-                        object ClassObj = Activator.CreateInstance(type);
+                        mapperClass = Activator.CreateInstance(type);
+                        mapperClassType = type;
 
                         // Dynamically Invoke the method
-                        object[] args = new object[] { "testValue" };
-                        object resultObject = type.InvokeMember("Map",
-                          BindingFlags.Default | BindingFlags.InvokeMethod,
-                               null,
-                               ClassObj,
-                               args);
-                        IList<KeyValuePair<string, string>> result = (IList<KeyValuePair<string, string>>)resultObject;
-                        client.setMappingResult(result, 1);
+                        assignTask(1, 10);
                         return true;
                     }
                 }
             }
             throw (new System.Exception("could not invoke method"));
+        }
+
+        private void assignTask(int splitNr, int linesNr)
+        {
+            int lstLine = splitNr * linesNr;
+            int fstLine = lstLine - linesNr + 1;
+
+            List<string> fileSplit = client.getFileSplit(fstLine, lstLine);
+            List<KeyValuePair<string, string>> mapResult = mapSplit(fileSplit, mapperClass, mapperClassType);
+            client.setMappingResult(mapResult, splitNr);
         }
     }
 }

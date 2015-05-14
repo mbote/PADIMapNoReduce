@@ -47,12 +47,11 @@ namespace Client
 		   try
            {
                clientService.setFilePath(inputFile);
-               clientService.setOutputFolder(outputPath);
-
-               clientService.getFileSplit(3, 7);
-               
+               clientService.setOutputFolder(outputPath);               
                byte[] code = File.ReadAllBytes(mappingClass);
                worker.setClient("tcp://localhost:10001/C");
+               worker.setTotalSplits(splitNr);
+               worker.setTotalLines(File.ReadLines(inputFile).Count());
                Console.WriteLine(worker.SendMapper(code, className));
            }
            catch (SocketException)

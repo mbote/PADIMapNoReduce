@@ -14,6 +14,8 @@ namespace PADIMapNoReduce
     }
 
     public interface IWorker : IMapperTransfer {
+        void setTotalLines(int totalLines);
+        void setTotalSplits(int totalSplits);
         void setJobTracker(bool b);
         void setClient(string clientAddress);
     }

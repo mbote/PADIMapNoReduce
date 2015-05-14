@@ -15,7 +15,6 @@ namespace Client
     {
 
         Client client;
-        ClientService clientService;
 
         public ClientForm()
         {
